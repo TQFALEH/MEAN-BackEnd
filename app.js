@@ -21,7 +21,7 @@ app.use("/auth", authRouter);
 app.use('/admin',adminRouter)
 // MongoDb Connection
 mongoose
-  .connect("mongodb://localhost:27017/Store")
+  .connect("mongodb+srv://rescco:0502504451@atlascluster.fgjc8gs.mongodb.net/Store")
   .then(() => {
     app.listen(8000, () => {
       console.log("The Server is running ");
