@@ -76,11 +76,9 @@ module.exports = {
       }
       const user = await User.findOne({ _id: claims._id });
       const { password, ...userData } = await user.toJSON();
-      res.send(userData);
+      res.send({userData:userData,status:true});
     } catch (error) {
-      return res.status(401).send({
-        messege: "Unauthenticated",
-      })
+      return res.send(false);
     }
   },
 

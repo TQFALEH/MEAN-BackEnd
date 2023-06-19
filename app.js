@@ -6,6 +6,10 @@ const adminRouter = require("./Routes/adminRoute");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const dotenv  =  require('dotenv').config()
+
+
+
 // Middleware For Json
 app.use(express.json());
 app.use(bodyParser.json());
@@ -21,7 +25,7 @@ app.use("/auth", authRouter);
 app.use('/admin',adminRouter)
 // MongoDb Connection
 mongoose
-  .connect("mongodb+srv://tqfaleh:0502504451@tareq.zvhmimk.mongodb.net")
+  .connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(8000, () => {
       console.log("The Server is running ");
